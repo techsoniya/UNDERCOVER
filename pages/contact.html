@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | UNDERCOVER</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let message = document.getElementById("message").value.trim();
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Valid email format
+            let nameRegex = /^[a-zA-Z\s]{3,30}$/; // Only letters & spaces, min 3 chars
+            let errorMsg = "";
+
+            // Validate Name
+            if (name === "" || !nameRegex.test(name)) {
+                errorMsg += "Please enter a valid Name (3-30 characters, letters only).\n";
+            }
+
+            // Validate Email
+            if (email === "" || !emailRegex.test(email)) {
+                errorMsg += "Please enter a valid Email address.\n";
+            }
+
+            // Validate Message
+            if (message.length < 10) {
+                errorMsg += "Message should be at least 10 characters long.\n";
+            }
+
+            // Show errors or submit
+            if (errorMsg !== "") {
+                alert(errorMsg);
+            } else {
+                alert("Message sent successfully!");
+                document.querySelector(".contact-form").submit(); // Submit form
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-left">
+                <div class="logo-text">UNDERCOVER</div>
+            </div>
+            <ul>
+                <li><a href="../index.html"><button>Home</button></a></li>
+                <li><a href="../login.html"><button>Login</button></a></li>
+                <li><a href="../signup.html"><button>Sign Up</button></a></li>
+                <li><a href="../terms.html"><button>Terms & Conditions</button></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contact-container">
+        <h2>Contact Us</h2>
+        <p>If you have any queries, feel free to reach out!</p>
+        <div class="contact-info">
+            <p><strong>Email:</strong> kamblisoniya@gmail.com</p>
+            <p><strong>Phone:</strong> +91 7406243349</p>
+            <p><strong>Address:</strong> Goa, India</p>
+        </div>
+
+        <form class="contact-form" onsubmit="validateForm(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" rows="4" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 UNDERCOVER. All rights reserved.</p>
+    </footer>
+</body>
+</html>

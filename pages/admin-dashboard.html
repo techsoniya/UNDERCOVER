@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | UNDERCOVER</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <nav>
+        <div class="nav-left">
+            <div class="logo">Admin Dashboard</div>
+        </div>
+        <ul>
+            <li><button onclick="showSection('dashboard')">Dashboard</button></li>
+            <li><button onclick="showSection('devices')">Devices</button></li>
+            <li><button onclick="showSection('customers')">Customers</button></li>
+            <li><button onclick="showSection('usage')">Usage Reports</button></li>
+            <li><button onclick="showSection('complaints')">Complaints</button></li>
+            <li><button onclick="showSection('requests')">Requests</button></li>
+            <li><a href="../index.html"><button>Logout</button></a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Sections -->
+    <section id="dashboard" class="dashboard">
+        <h2>Welcome, Admin</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Total Devices</h3>
+                <p>120 Active</p>
+            </div>
+            <div class="card">
+                <h3>Customers</h3>
+                <p>250 Registered</p>
+            </div>
+            <div class="card">
+                <h3>Complaints</h3>
+                <p>10 Resolved | 5 In Progress</p>
+            </div>
+            <div class="card">
+                <h3>New Connection Requests</h3>
+                <p>7 Pending</p>
+            </div>
+            <div class="card">
+                <h3>Upgrade Requests</h3>
+                <p>3 Awaiting Approval</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="devices" class="hidden-section">
+        <h2>Device Status</h2>
+        <table>
+            <tr>
+                <th>Device ID</th>
+                <th>Type</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>101</td>
+                <td>Security Camera</td>
+                <td>Active</td>
+            </tr>
+            <tr>
+                <td>102</td>
+                <td>Alarm System</td>
+                <td>Faulty</td>
+            </tr>
+            <tr>
+                <td>103</td>
+                <td>Motion Detector</td>
+                <td>Inactive</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="customers" class="hidden-section">
+        <h2>Customer List</h2>
+        <table>
+            <tr>
+                <th>Customer ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>501</td>
+                <td>Soniya</td>
+                <td>Soniya@gmail.com</td>
+                <td>Active</td>
+            </tr>
+            <tr>
+                <td>502</td>
+                <td>Avani</td>
+                <td>Avani@gmail.com</td>
+                <td>Inactive</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="usage" class="hidden-section">
+        <h2>Usage Reports</h2>
+        <p>Coming Soon...</p>
+    </section>
+
+    <section id="complaints" class="hidden-section">
+        <h2>Complaint Records</h2>
+        <table>
+            <tr>
+                <th>Complaint ID</th>
+                <th>Customer</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>9001</td>
+                <td>Alice Johnson</td>
+                <td>Resolved</td>
+            </tr>
+            <tr>
+                <td>9002</td>
+                <td>Bob Smith</td>
+                <td>Pending</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="requests" class="hidden-section">
+        <h2>Service Requests</h2>
+        <p>Coming Soon...</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 UNDERCOVER. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.display = section.id === sectionId ? 'block' : 'none';
+            });
+        }
+        // Show dashboard by default
+        showSection('dashboard');
+    </script>
+
+</body>
+</html>
