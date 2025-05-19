@@ -1,27 +1,27 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Page Loaded");
-    // this validation is for login page
+  
     const loginForm = document.getElementById("loginForm");
     if (loginForm) {
         loginForm.addEventListener("submit", function (event) {
             event.preventDefault(); 
-// default submission is prevented by preventDefault() function
+
             let email = document.getElementById("email").value.trim();
             let password = document.getElementById("password").value.trim();
             let role = document.getElementById("role").value;
 
-// next email validation
+
             if (!validateEmail(email)) {
                 alert("Please enter a valid email.");
                 return;
             }
-// password validation let it be 6 characters long
+
             if (!validatePassword(password)) {
                 alert("Password must be at least 8 character long and include these \n- 1 uppercase etter\n- 1 lowercase letter\n- 1 number\n- 1 special characterr.");
                 return;
             }
-// role and pop up with redirection to admin and user dashboard page
+
             alert(`Login Successful as ${role}! Redirecting...`);
             if (role === "Admin") {
                 window.location.href = "pages/admin-dashboard.html";
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-// this is the validation for sign up page
+
     const signupForm = document.getElementById("signupForm");
     if (signupForm) {
         signupForm.addEventListener("submit", function (event) {
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let password = document.getElementById("password").value.trim();
             let confirmPassword = document.getElementById("confirm-password").value.trim();
             let terms = document.getElementById("terms").checked;
-// name characters and also length validation
+
             if (!/^[A-Z][a-zA-Z\s]+$/.test(name) || name.length < 3) {
                 alert("Name should start with a capital letter, contain only alphabets and spaces, and be at least 3 characters long.");
                 return;
@@ -51,42 +51,42 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-//we can check password strength
+
             if (!validatePassword(password)) {
                 alert("Password must be at least 8 character long and include these \n- 1 uppercase etter\n- 1 lowercase letter\n- 1 number\n- 1 special characterr.");
                 return;
             }
 
-//does  confirm password match with above password 
+
             if (password !== confirmPassword) {
                 alert("Passwords do not match.");
                 return;
             }
-// check box check uncheck 
+
             if (!terms) {
                 alert("You must agree to the Terms & Conditions.");
                 return;
             }
-// redirection again
+
             alert("Sign Up Successful! Redirecting to Login");
             window.location.href = "login.html";
         });
     }
 });
 
-// email format @ validation
+
 function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
 
-// password strength validation
+
 function validatePassword(password) {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return passwordRegex.test(password);
 }
 
-//dasboard data
+
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Dashboard Loaded");
 
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ];
     }
 
-// admin dasboard 
+
     let table = document.querySelector("table");
     if (table) {
         let devices = fetchDevices();

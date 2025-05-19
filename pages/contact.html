@@ -4,39 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | UNDERCOVER</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/hello.css">
     <script>
         function validateForm(event) {
-            event.preventDefault(); // Prevent form submission
+            event.preventDefault(); 
             
             let name = document.getElementById("name").value.trim();
             let email = document.getElementById("email").value.trim();
             let message = document.getElementById("message").value.trim();
-            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Valid email format
-            let nameRegex = /^[a-zA-Z\s]{3,30}$/; // Only letters & spaces, min 3 chars
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+            let nameRegex = /^[a-zA-Z\s]{3,30}$/; 
             let errorMsg = "";
 
-            // Validate Name
+       
             if (name === "" || !nameRegex.test(name)) {
                 errorMsg += "Please enter a valid Name (3-30 characters, letters only).\n";
             }
 
-            // Validate Email
+          
             if (email === "" || !emailRegex.test(email)) {
                 errorMsg += "Please enter a valid Email address.\n";
             }
 
-            // Validate Message
+         
             if (message.length < 10) {
                 errorMsg += "Message should be at least 10 characters long.\n";
             }
 
-            // Show errors or submit
+            
             if (errorMsg !== "") {
                 alert(errorMsg);
             } else {
                 alert("Message sent successfully!");
-                document.querySelector(".contact-form").submit(); // Submit form
+                document.querySelector(".contact-form").submit(); 
             }
         }
     </script>
